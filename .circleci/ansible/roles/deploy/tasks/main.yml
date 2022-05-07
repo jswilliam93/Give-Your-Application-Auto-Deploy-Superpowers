@@ -3,7 +3,7 @@
     path: ~/backend
     state: directory
 
-- name: Extract artifact.tar.gz
+- name: unarchive artifact.tar.gz
   unarchive:
     src: artifact.tar.gz
     dest: ~/backend
