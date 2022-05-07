@@ -23,8 +23,8 @@
   args:
     chdir: ~/backend
 
-- name: pm2 start main.js
-  become: true
-  command: pm2 start -f main.js
-  args:
-    chdir: ~/backend/dist
+# - name: pm2 start main.js
+#   become: true
+#   command: pm2 start -f main.js
+#   args:
+#     chdir: ~/backend/dist
