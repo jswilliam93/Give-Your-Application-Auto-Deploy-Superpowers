@@ -1,27 +1,23 @@
 - name: creates directory for backend
-  become: true
   file:
-    path: backend
+    path: ~/backend
     state: directory
 
 - name: unarchive artifact.tar.gz
-  become: true
   unarchive:
     src: artifact.tar.gz
-    dest: backend
+    dest: ~/backend
 
 - name: pm2 stop default
-  become: true
   command: pm2 stop default
   ignore_errors: yes
   args:
-    chdir: backend
+    chdir: ~/backend
 
 - name: pm2 start npm -- start
-  become: true
   command: pm2 start npm -- start
   args:
-    chdir: backend
+    chdir: ~/backend
 # - name: pm2 start main.js
 #   become: true
 #   command: pm2 start -f main.js
