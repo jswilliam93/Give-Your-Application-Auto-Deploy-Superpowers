@@ -186,7 +186,7 @@ jobs:
 
   run-migrations:
     docker:
-      - image: circleci/node:13.8.0
+      - image: sleavely/node-awscli:14.x
       environment:
         TYPEORM_CONNECTION: $TYPEORM_CONNECTION
         TYPEORM_HOST: $TYPEORM_HOST
