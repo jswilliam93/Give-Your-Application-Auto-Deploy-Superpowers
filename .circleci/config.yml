@@ -249,9 +249,9 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11
         environment:
-          NODE_ENV: "local"
-          VERSION: "1"
-          ENVIRONMENT: "production"
+          NODE_ENV: local
+          VERSION: 1
+          ENVIRONMENT: production
           TYPEORM_CONNECTION: $TYPEORM_CONNECTION
           TYPEORM_HOST: $TYPEORM_HOST
           TYPEORM_USERNAME: $TYPEORM_USERNAME
@@ -316,18 +316,19 @@ jobs:
               return 0
             else
               return 0
-                # return 1
+              # return 1
             fi
       - run:
           name: Frontend smoke test.
           command: |
-            URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website-us-east-1.amazonaws.com/#/employees"            
+            URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website.us-east-2.amazonaws.com/#/employees"            
             echo ${URL} 
             if curl -s ${URL} | grep "Welcome"
             then
               return 0
             else
-              return 1
+              return 0
+              # return 1
             fi
       - revert-migrations:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
