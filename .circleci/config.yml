@@ -11,7 +11,7 @@ commands:
           name: Destroy environments
           when: on_fail
           command: |
-            aws s3 rm s3://udapeople-<<parameters.workflow_id>> --recursive
+            aws s3 rm s3://udapeople-fc7b2d0 --recursive
             aws cloudformation delete-stack --stack-name udapeople-backend-<<parameters.workflow_id>>
             aws cloudformation delete-stack --stack-name udapeople-frontend-<<parameters.workflow_id>>
 
@@ -250,7 +250,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: sleavely/node-awscli:14.x
+      - image: python:3.7-alpine3.11
         environment:
           NODE_ENV: "local"
           VERSION: "1"
@@ -272,7 +272,8 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --upgrade bash ansible openssh-client
+            apk add --upgrade bash ansible openssh-client nodejs npm curl
+            pip3 install awscli
       - run:
           name: Deploy backend
           command: |
