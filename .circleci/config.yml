@@ -250,7 +250,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: sleavely/node-awscli:14.x
         environment:
           NODE_ENV: "local"
           VERSION: "1"
@@ -272,8 +272,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --upgrade bash ansible openssh-client nodejs npm curl
-            pip3 install awscli
+            apk add --upgrade bash ansible openssh-client
       - run:
           name: Deploy backend
           command: |
