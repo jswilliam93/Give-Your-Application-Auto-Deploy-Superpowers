@@ -305,7 +305,7 @@ jobs:
             then
               return 0
             else
-              return 0
+              return 1
             fi
       - run:
           name: Frontend smoke test.
@@ -316,8 +316,7 @@ jobs:
             then
               return 0
             else
-              return 0
-              # return 1
+              return 1
             fi
       # - revert-migrations:
       #     workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
