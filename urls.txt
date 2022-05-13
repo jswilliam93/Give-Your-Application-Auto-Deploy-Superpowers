@@ -1,2 +1,4 @@
 [URL01]
 https://github.com/jswilliam93/Give-Your-Application-Auto-Deploy-Superpowers
+[URL02]
+http://udapeople-0172159.s3-website.us-east-2.amazonaws.com/
